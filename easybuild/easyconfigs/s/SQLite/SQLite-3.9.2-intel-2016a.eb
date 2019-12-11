@@ -1,5 +1,5 @@
 ##
-# This file is an EasyBuild reciPY as per https://github.com/hpcugent/easybuild
+# This file is an EasyBuild reciPY as per https://github.com/easybuilders/easybuild
 #
 # Copyright:: Copyright 2012-2014 Uni.Lu/LCSB, NTUA
 # Authors::   Fotis Georgatos <fotis@cern.ch>
@@ -22,8 +22,8 @@ toolchain = {'name': 'intel', 'version': '2016a'}
 
 # eg. http://www.sqlite.org/2014/sqlite-autoconf-3080600.tar.gz
 source_urls = ['http://www.sqlite.org/2015/']
-version_str = '%%(version_major)s%s00' % ''.join('%02d' % int(x) for x in version.split('.')[1:])
-sources = ['sqlite-autoconf-%s.tar.gz' % version_str]
+local_version_str = '%%(version_major)s%s00' % ''.join('%02d' % int(x) for x in version.split('.')[1:])
+sources = ['sqlite-autoconf-%s.tar.gz' % local_version_str]
 
 dependencies = [
     ('libreadline', '6.3'),
@@ -33,7 +33,8 @@ dependencies = [
 parallel = 1
 
 sanity_check_paths = {
-    'files': ['bin/sqlite3', 'include/sqlite3ext.h', 'include/sqlite3.h', 'lib/libsqlite3.a', 'lib/libsqlite3.%s' % SHLIB_EXT],
+    'files': ['bin/sqlite3', 'include/sqlite3ext.h', 'include/sqlite3.h', 'lib/libsqlite3.a',
+              'lib/libsqlite3.%s' % SHLIB_EXT],
     'dirs': ['lib/pkgconfig'],
 }
 

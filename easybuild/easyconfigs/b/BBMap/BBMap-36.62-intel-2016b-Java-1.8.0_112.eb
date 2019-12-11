@@ -10,14 +10,14 @@ description = """BBMap short read aligner, and other bioinformatic tools."""
 toolchain = {'name': 'intel', 'version': '2016b'}
 
 source_urls = [SOURCEFORGE_SOURCE]
-sources = ['%(name)s_%(version)s.tar.gz' ]
+sources = ['%(name)s_%(version)s.tar.gz']
 
 dependencies = [('Java', '1.8.0_112', '', True)]
 
 prebuildopts = 'cd jni && '
 
-suff = {'Darwin': 'osx', 'Linux': 'linux'}[OS_TYPE]
-buildopts = "-f makefile.%s" % suff
+local_suff = {'Darwin': 'osx', 'Linux': 'linux'}[OS_TYPE]
+buildopts = "-f makefile.%s" % local_suff
 
 files_to_copy = ['*']
 

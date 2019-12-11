@@ -2,12 +2,9 @@ easyblock = 'ConfigureMake'
 
 name = 'beagle-lib'
 version = '2.1.2'
-homepage=  'https://github.com/beagle-dev/beagle-lib'
-description = """
-beagle-lib is a high-performance library that can perform the core
-calculations at the heart of most Bayesian and Maximum Likelihood
-phylogenetics packages.
-"""
+homepage = 'https://github.com/beagle-dev/beagle-lib'
+description = """beagle-lib is a high-performance library that can perform the core calculations at the heart of most
+ Bayesian and Maximum Likelihood phylogenetics packages."""
 
 toolchain = {'name': 'foss', 'version': '2016a'}
 
@@ -25,10 +22,8 @@ parallel = 1
 preconfigopts = "./autogen.sh && "
 
 sanity_check_paths = {
-    'files': ["include/libhmsbeagle-1/libhmsbeagle/%s" % includefile
-              for includefile in ["beagle.h", "platform.h"]] +
-             ["lib/libhmsbeagle%s.so" % libfile
-              for libfile in ["-cpu", "-cpu-sse", "-jni", ""]],
+    'files': ["include/libhmsbeagle-1/libhmsbeagle/%s" % x for x in ["beagle.h", "platform.h"]] +
+             ["lib/libhmsbeagle%s.so" % x for x in ["-cpu", "-cpu-sse", "-jni", ""]],
     'dirs': []
 }
 
